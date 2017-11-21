@@ -19,7 +19,7 @@ namespace KeycloakAuthRequestExample
             SendPostRequestToKeycloak($"https://{keyCloakUrl}/realms/{realmName}/protocol/openid-connect/token",
                 "grant_type=password&" +
                 $"username={username}&" +
-                $"password={password}2&" +
+                $"password={password}&" +
                 $"client_id={clientId}&" +
                 $"client_secret={clientSecret}");
 
