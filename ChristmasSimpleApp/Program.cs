@@ -53,7 +53,7 @@ namespace ChristmasSimpleApp
                 Console.ForegroundColor = (ConsoleColor) rnd.Next(0, 15);
                 Console.WriteLine(snowflake);
                 Console.WriteLine(christmasTree);
-                Thread.Sleep(100);
+                Thread.Sleep(300);
                 Console.Clear();
             }
         }
