@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Media;
 using System.Threading;
 
@@ -14,10 +10,11 @@ namespace ChristmasSimpleApp
         {
             Random rnd = new Random();
 
-            System.Reflection.Assembly a = System.Reflection.Assembly.GetExecutingAssembly();
-            System.IO.Stream s = a.GetManifestResourceStream(@"ChristmasSimpleApp.jingle_bells.wav");
-            SoundPlayer player = new SoundPlayer(s);
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            System.IO.Stream resourceStream = assembly.GetManifestResourceStream(@"ChristmasSimpleApp.jingle_bells.wav");
+            SoundPlayer player = new SoundPlayer(resourceStream);
             player.Play();
+
             string snowflake = @"                                          *
                                    *      *      *
                                      * ^  *  ^ *
