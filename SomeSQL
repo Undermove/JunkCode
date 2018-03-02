@@ -1,5 +1,4 @@
-SELECT name
-  	FROM "Registrations"
+SELECT name FROM "Registrations"
  	WHERE "customerId" NOT IN (
 		SELECT A."customerId" from purchases AS A 
 		LEFT join purchases AS B ON A."customerId" = B."customerId" 
