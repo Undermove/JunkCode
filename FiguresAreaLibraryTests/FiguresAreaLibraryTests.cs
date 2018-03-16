@@ -1,7 +1,6 @@
 using System;
 using FiguresAreaLib;
 using Xunit;
-using Xunit.Sdk;
 
 namespace FiguresAreaLibraryTests
 {
