@@ -11,9 +11,11 @@ namespace ChristmasSimpleApp
             Random rnd = new Random();
 
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            System.IO.Stream resourceStream = assembly.GetManifestResourceStream(@"ChristmasSimpleApp.jingle_bells.wav");
+            System.IO.Stream resourceStream = 
+				assembly.GetManifestResourceStream(@"ChristmasSimpleApp.jingle_bells.wav");
             SoundPlayer player = new SoundPlayer(resourceStream);
             player.Play();
+			
 
             string snowflake = @"                                          *
                                    *      *      *
