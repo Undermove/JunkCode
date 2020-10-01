@@ -3,34 +3,87 @@ using Xunit;
 
 namespace LinkedListTest
 {
-    public class UnitTest1
+    public class LinkedListTest
     {
         [Fact]
-        public void LinkedListTest1()
+        public void AddCellToStartTest()
         {
-            // Arrange
-            LinkedListCell<int> firstCell = new LinkedListCell<int>(1);
-            LinkedListCell<int> secondCell = new LinkedListCell<int>(2);
-            LinkedListCell<int> thirdCell = new LinkedListCell<int>(3);
-            LinkedListCell<int> fourthCell = new LinkedListCell<int>(4);
-            LinkedListCell<int> fifthCell = new LinkedListCell<int>(5);
+            // arrange
+            LinkedList<int> list = new LinkedList<int>();
+            var lastCell = new LinkedListCell<int>(1);
 
-            firstCell.Next = secondCell;
-            secondCell.Next = thirdCell;
-            thirdCell.Next = fourthCell;
-            fourthCell.Next = fifthCell;
-            fifthCell.Next = null;
+            // act
+            list.AddCellToStart(lastCell);
 
-            // Act
-            int result = 0;
-            var currentCell = firstCell;
-            while(currentCell != null){
-                result += currentCell.Data;
-                currentCell = currentCell.Next;
-            }
+            // assert
+            Assert.Equal(1, list.Count());
+        }
 
-            // Assert
-            Assert.Equal(result, 15);
+        [Fact]
+        public void AddTwoCellsToStartTest()
+        {
+            // arrange
+            LinkedList<int> list = new LinkedList<int>();
+            var firstCell = new LinkedListCell<int>(1);
+            var lastCell = new LinkedListCell<int>(1);
+
+            // act
+            list.AddCellToStart(firstCell);
+            list.AddCellToStart(lastCell);
+
+            // assert
+            Assert.Equal(2, list.Count());
+        }
+
+        [Fact]
+        public void AddCellToEndTest()
+        {
+            // arrange
+            LinkedList<int> list = new LinkedList<int>();
+            var firstCell = new LinkedListCell<int>(1);
+
+            // act
+            list.AddCellToEnd(firstCell);
+
+            // assert
+            Assert.Equal(1, list.Count());
+        }
+
+        [Fact]
+        public void AddSecondCellToEndTest()
+        {
+            // arrange
+            LinkedList<int> list = new LinkedList<int>();
+            var firstCell = new LinkedListCell<int>(1);
+            list.AddCellToEnd(firstCell);
+            var lastCell = new LinkedListCell<int>(1);
+
+            // act
+            list.AddCellToEnd(lastCell);
+
+            // assert
+            Assert.Same(firstCell, list.TopCell);
+            Assert.Same(lastCell, list.TopCell.Next);
+        }
+
+        [Fact]
+        public void AddThreeCellsToEndTest()
+        {
+            // arrange
+            LinkedList<int> list = new LinkedList<int>();
+            var firstCell = new LinkedListCell<int>(1);
+            var secondCell = new LinkedListCell<int>(1);
+            var thirdCell = new LinkedListCell<int>(1);
+
+            // act
+            list.AddCellToEnd(firstCell);
+            list.AddCellToEnd(secondCell);
+            list.AddCellToEnd(thirdCell);
+
+            // assert
+            Assert.Same(firstCell, list.TopCell);
+            Assert.Same(secondCell, list.TopCell.Next);
+            Assert.Same(thirdCell, list.TopCell.Next.Next);
         }
     }
 }
