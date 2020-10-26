@@ -85,5 +85,24 @@ namespace LinkedListTest
             Assert.Same(secondCell, list.TopCell.Next);
             Assert.Same(thirdCell, list.TopCell.Next.Next);
         }
+
+        [Fact]
+        public void FindIndexWithSpecifiedInformation()
+        {
+            // arrange
+            LinkedList<int> list = new LinkedList<int>();
+            var firstCell = new LinkedListCell<int>(7);
+            var secondCell = new LinkedListCell<int>(10);
+            var thirdCell = new LinkedListCell<int>(4);
+            list.AddCellToEnd(firstCell);
+            list.AddCellToEnd(secondCell);
+            list.AddCellToEnd(thirdCell);
+
+            // act 
+            var found = list.GetByIndex(1);
+
+            // assert
+            Assert.Same(secondCell, found);
+        }
     }
 }
