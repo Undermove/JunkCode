@@ -52,12 +52,25 @@ namespace LinkedListTest
             currentCell.Next = lastCell;
         }
 
+        public LinkedListCell<T> GetByIndex(int i)
+        {
+            int currentNumber = 0;
+            LinkedListCell<T> currentCell = TopCell;
+            while (currentNumber < i)
+            {
+                currentCell = currentCell.Next;
+                currentNumber++;
+            }
+
+            return currentCell;
+        }
+
         public int Count()
         {
             int result = 0;
             var currentCell = TopCell;
             while(currentCell != null){
-                result += 1;
+                result++;
                 currentCell = currentCell.Next;
             }
 
